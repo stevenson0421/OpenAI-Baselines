@@ -62,7 +62,16 @@ The master branch supports Tensorflow from version 1.4 to 1.14. For Tensorflow 2
 - Install baselines package
     ```bash
     pip install -e .
+    pip install matplotlib pandas gym[atari] filelock
+    conda install ffmpeg
     ```
+
+- Install atari Roms from http://www.atarimania.com/rom_collection_archive_atari_2600_roms.html and extract the .rar file. After that, run:
+    ```bash
+    python -m atari_py.import_roms <path to folder>
+    ```
+
+
 
 ### MuJoCo
 Some of the baselines examples use [MuJoCo](http://www.mujoco.org) (multi-joint dynamics in contact) physics simulator, which is proprietary and requires binaries and a license (temporary 30-day license can be obtained from [www.mujoco.org](http://www.mujoco.org)). Instructions on setting up MuJoCo can be found [here](https://github.com/openai/mujoco-py)
