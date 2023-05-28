@@ -16,6 +16,7 @@ def test_monitor():
         _, _, done, _ = menv.step(0)
         if done:
             menv.reset()
+    menv.close()
 
     f = open(mon_file, 'rt')
 

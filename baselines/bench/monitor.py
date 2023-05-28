@@ -5,6 +5,7 @@ import time
 from glob import glob
 import csv
 import os.path as osp
+import os
 import json
 
 class Monitor(Wrapper):
@@ -77,9 +78,8 @@ class Monitor(Wrapper):
         self.total_steps += 1
 
     def close(self):
-        super(Monitor, self).close()
-        if self.f is not None:
-            self.f.close()
+        if self.results_writer is not None:
+            self.results_writer.close()
 
     def get_total_steps(self):
         return self.total_steps
@@ -106,6 +106,7 @@ class ResultsWriter(object):
                 filename = osp.join(filename, Monitor.EXT)
             else:
                 filename = filename + "." + Monitor.EXT
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
         self.f = open(filename, "wt")
         if isinstance(header, dict):
             header = '# {} \n'.format(json.dumps(header))
@@ -118,7 +119,9 @@ class ResultsWriter(object):
         if self.logger:
             self.logger.writerow(epinfo)
             self.f.flush()
-
+    def close(self):
+        if self.f is not None:
+            self.f.close()
 
 def get_monitor_files(dir):
     return glob(osp.join(dir, "*" + Monitor.EXT))

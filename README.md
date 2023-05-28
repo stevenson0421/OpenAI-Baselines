@@ -38,6 +38,8 @@ To activate a virtualenv:
 ```
 More thorough tutorial on virtualenvs and options can be found [here](https://virtualenv.pypa.io/en/stable/) 
 
+## Python versions
+Recommended Python version is 3.7.15
 
 ## Tensorflow versions
 The master branch supports Tensorflow from version 1.4 to 1.14. For Tensorflow 2.0 support, please use tf2 branch.
@@ -51,6 +53,7 @@ The master branch supports Tensorflow from version 1.4 to 1.14. For Tensorflow 2
 - If you don't have TensorFlow installed already, install your favourite flavor of TensorFlow. In most cases, you may use
     ```bash 
     pip install tensorflow-gpu==1.14 # if you have a CUDA-compatible gpu and proper drivers
+    pip install cudatoolkit=10.0.130 cudnn=7.6.5
     ```
     or 
     ```bash
@@ -62,7 +65,16 @@ The master branch supports Tensorflow from version 1.4 to 1.14. For Tensorflow 2
 - Install baselines package
     ```bash
     pip install -e .
+    pip install matplotlib pandas gym[atari] filelock
+    conda install ffmpeg
     ```
+
+- Install atari Roms from http://www.atarimania.com/rom_collection_archive_atari_2600_roms.html and extract the .rar file. After that, run:
+    ```bash
+    python -m atari_py.import_roms <path to folder>
+    ```
+
+
 
 ### MuJoCo
 Some of the baselines examples use [MuJoCo](http://www.mujoco.org) (multi-joint dynamics in contact) physics simulator, which is proprietary and requires binaries and a license (temporary 30-day license can be obtained from [www.mujoco.org](http://www.mujoco.org)). Instructions on setting up MuJoCo can be found [here](https://github.com/openai/mujoco-py)
