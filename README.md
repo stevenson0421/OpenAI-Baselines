@@ -8,8 +8,20 @@ OpenAI Baselines is a set of high-quality implementations of reinforcement learn
 
 These algorithms will make it easier for the research community to replicate, refine, and identify new ideas, and will create good baselines to build research on top of. Our DQN implementation and its variants are roughly on par with the scores in published papers. We expect they will be used as a base around which new ideas can be added, and as a tool for comparing a new approach against existing ones. 
 
+## Subpackages
+
+- [A2C](baselines/a2c)
+- [ACER](baselines/acer)
+- [ACKTR](baselines/acktr)
+- [DDPG](baselines/ddpg)
+- [DQN](baselines/deepq)
+- [GAIL](baselines/gail)
+- [HER](baselines/her)
+- [PPO1](baselines/ppo1) (obsolete version, left here temporarily)
+- [PPO2](baselines/ppo2) 
+- [TRPO](baselines/trpo_mpi)
+
 ## Prerequisites 
-Baselines requires python3 (>=3.5) with the development headers. You'll also need system packages CMake, OpenMPI and zlib. Those can be installed as follows
 ### Ubuntu 
     
 ```bash
@@ -74,11 +86,6 @@ The master branch supports Tensorflow from version 1.4 to 1.14. For Tensorflow 2
     python -m atari_py.import_roms <path to folder>
     ```
 
-
-
-### MuJoCo
-Some of the baselines examples use [MuJoCo](http://www.mujoco.org) (multi-joint dynamics in contact) physics simulator, which is proprietary and requires binaries and a license (temporary 30-day license can be obtained from [www.mujoco.org](http://www.mujoco.org)). Instructions on setting up MuJoCo can be found [here](https://github.com/openai/mujoco-py)
-
 ## Testing the installation
 All unit tests in baselines can be run using pytest runner:
 ```
@@ -139,37 +146,3 @@ python -m baselines.run --alg=ppo2 --env=PongNoFrameskip-v4 --num_timesteps=2e7 
 Another way the temp directory can be changed is through the use of the `$OPENAI_LOGDIR` environment variable.
 
 For examples on how to load and display the training data, see [here](docs/viz/viz.ipynb).
-
-## Subpackages
-
-- [A2C](baselines/a2c)
-- [ACER](baselines/acer)
-- [ACKTR](baselines/acktr)
-- [DDPG](baselines/ddpg)
-- [DQN](baselines/deepq)
-- [GAIL](baselines/gail)
-- [HER](baselines/her)
-- [PPO1](baselines/ppo1) (obsolete version, left here temporarily)
-- [PPO2](baselines/ppo2) 
-- [TRPO](baselines/trpo_mpi)
-
-
-
-## Benchmarks
-Results of benchmarks on Mujoco (1M timesteps) and Atari (10M timesteps) are available 
-[here for Mujoco](https://htmlpreview.github.com/?https://github.com/openai/baselines/blob/master/benchmarks_mujoco1M.htm) 
-and
-[here for Atari](https://htmlpreview.github.com/?https://github.com/openai/baselines/blob/master/benchmarks_atari10M.htm) 
-respectively. Note that these results may be not on the latest version of the code, particular commit hash with which results were obtained is specified on the benchmarks page. 
-
-To cite this repository in publications:
-
-    @misc{baselines,
-      author = {Dhariwal, Prafulla and Hesse, Christopher and Klimov, Oleg and Nichol, Alex and Plappert, Matthias and Radford, Alec and Schulman, John and Sidor, Szymon and Wu, Yuhuai and Zhokhov, Peter},
-      title = {OpenAI Baselines},
-      year = {2017},
-      publisher = {GitHub},
-      journal = {GitHub repository},
-      howpublished = {\url{https://github.com/openai/baselines}},
-    }
-
