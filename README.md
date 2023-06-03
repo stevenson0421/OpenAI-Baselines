@@ -214,3 +214,4 @@ For examples on how to load and display the training data, see [here](docs/viz/v
 - value network is specified in [baselines/common/policies.PolicyWithValue()](baselines/common/policies.py#L58) To share layers with policy network, set value_network='shared' for function build_policy(), defined in [baselines/common/policies.py](baselines/common/policies.py#L121), and used in [baselines/ppo2/ppo2.py](baselines/ppo2/ppo2.py#L88)
 - POME adds two additional network, which are reward network and transition network
 - The main algorithm is implemented in [baselines/ppo2/model.py](baselines/ppo2/model.py)
+- For reference, [baselines/deepq/experiments/custom_cartpole.py](baselines/deepq/experiments/custom_cartpole.py) builds a customized framework for DQN
