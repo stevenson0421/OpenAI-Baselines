@@ -210,8 +210,7 @@ For examples on how to load and display the training data, see [here](docs/viz/v
     13. log_path: Directory to save learning curve data, default=None
     14. play: flag for visualization, default=False
 
-- default policy network is set to cnn in [baselines/run.get_default_network()](baselines/run.py#L148). Inorder to share layers with value network, it should be set to conv_only, and then apply a fc layer to the latent.
-- value network is specified in [baselines/common/policies.PolicyWithValue()](baselines/common/policies.py#L58) To share layers with policy network, set value_network='shared' for function build_policy(), defined in [baselines/common/policies.py](baselines/common/policies.py#L121), and used in [baselines/ppo2/ppo2.py](baselines/ppo2/ppo2.py#L88)
+- default policy network is set to cnn in [baselines/run.get_default_network()](baselines/run.py#L148), which is the network used.
 - POME adds two additional network, which are reward network and transition network
 - The main algorithm is implemented in [baselines/ppo2/model.py](baselines/ppo2/model.py)
 - For reference, [baselines/deepq/experiments/custom_cartpole.py](baselines/deepq/experiments/custom_cartpole.py) builds a customized framework for DQN
