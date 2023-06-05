@@ -210,7 +210,7 @@ For examples on how to load and display the training data, see [here](docs/viz/v
     13. log_path: Directory to save learning curve data, default=None
     14. play: flag for visualization, default=False
 
-- default policy network is set to cnn in [baselines/run.get_default_network()](baselines/run.py#L148), which is the network used.
+- default policy network is set to cnn in [baselines/run.get_default_network()](baselines/run.py#L148), while the paper use cnn: [[16, 8, 4], [32, 4, 2]] + fc [256].
 - POME adds two additional network, which are reward network and transition network
 - The main algorithm is implemented in [baselines/ppo2/model.py](baselines/ppo2/model.py)
 - For reference, [baselines/deepq/experiments/custom_cartpole.py](baselines/deepq/experiments/custom_cartpole.py) builds a customized framework for DQN
